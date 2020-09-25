@@ -19101,6 +19101,8 @@ class AnnotationFactory {
 
           case "Ch":
             return new ChoiceWidgetAnnotation(parameters);
+          case "Sig":
+            return new SquareAnnotation(parameters);
         }
 
         (0, _util.warn)('Unimplemented widget field type "' + fieldType + '", ' + "falling back to base field type.");
@@ -19635,11 +19637,6 @@ class WidgetAnnotation extends Annotation {
     }
 
     data.readOnly = this.hasFieldFlag(_util.AnnotationFieldFlag.READONLY);
-
-    if (data.fieldType === "Sig") {
-      data.fieldValue = null;
-      this.setFlags(_util.AnnotationFlag.HIDDEN);
-    }
   }
 
   _constructFieldName(dict) {
